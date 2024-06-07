@@ -1,25 +1,33 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Inject, ScheduleComponent,ViewsDirective,ViewDirective, Day, Week, WorkWeek, Month, Agenda,MonthAgenda,TimelineViews,TimelineMonth,EventSettingsModel } from '@syncfusion/ej2-react-schedule';
+import {DataManager, WebApiAdaptor} from '@syncfusion/ej2-data';
 
 function App() {
+  // const localData: EventSettingsModel = {
+  //   dataSource: [{
+  //     EndTime: new Date(2024, 5, 11, 6, 30),
+  //     StartTime: new Date(2024, 5, 11, 4, 0),
+  //   }]
+  // };
+  // const remoteData = new DataManager({
+  //   url:'https://js.syncfusion.com/demos/ejservices/api/Schedule/LoadData',
+  //   adaptor: new WebApiAdaptor,
+  //   crossDomain: true
+  // });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ScheduleComponent >
+            {/* <ViewsDirective>
+              <ViewDirective option='Day' />
+              <ViewDirective option='Week' />
+              <ViewDirective option='WorkWeek' />
+              <ViewDirective option='Month' />
+              <ViewDirective option='Agenda' />
+            </ViewsDirective> */}
+      <Inject services={[Day, Week, WorkWeek, Month, Agenda, MonthAgenda, TimelineViews, TimelineMonth ]} />
+    </ScheduleComponent>
   );
 }
 
